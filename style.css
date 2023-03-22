@@ -45,22 +45,44 @@ body {
 /* datum */
 .days {
     flex: 60%;
-    padding: 50px;
+    padding: 0px 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.days div {
-    background-color: lightgreen;
-    margin-bottom: 5px;
+#weekdays, #dates, #datesBlank {
+    flex: 12%;
+    margin: 5px;
     padding: 5px;
 }
 
-/* habit tracker */
+#weekdays {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 2px;
+    text-align: center;
+}
+
+#dates, #datesBlank {
+    height: 100px;
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+#datesBlank {
+    background-color: rgb(205, 205, 205);
+}
+
+/* habit trackers */
 .habits {
-    flex: 40%;
+    flex: 30%;
+    padding: 5px;
 }
 
 .habits span {
     background-color: rgb(35, 109, 109);
     padding: 10px 20px;
-    margin-right: 5px;
+    margin-right: 5px; 
 }
