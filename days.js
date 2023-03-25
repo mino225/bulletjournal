@@ -11,10 +11,10 @@ document.getElementById("todaysWeekday").innerHTML = weekday + "\xa0";
 document.getElementById("todaysDate").innerHTML = day + "\xa0";
 document.getElementById("todaysMonth").innerHTML = month;
 
-if (month == "Februari") {
-    document.getElementsByClassName("29").innerHTML = "-";
-    document.getElementsByClassName("30").innerHTML = "-";
-    document.getElementsByClassName("31").innerHTML = "-";
+if (month.getAttribute("value") == "Mars") {
+    document.getElementsById("date29").style.display = "none";
+    document.getElementById("date30").style.display = "none";
+    document.getElementById("date31").style.display = "none";
     //alert("h")
 }
 

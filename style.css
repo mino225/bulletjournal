@@ -50,29 +50,29 @@ body {
     flex-wrap: wrap;
 }
 
-#weekdays, #dates, #datesBlank {
+.weekdays, .dates, .datesBlank {
     flex: 12%;
     margin: 5px;
     padding: 5px;
 }
 
-#weekdays {
+.weekdays {
     border-bottom: solid;
     border-color: black;
     border-width: 2px;
     text-align: center;
 }
 
-#dates, #datesBlank {
+.dates, .datesBlank {
     height: 100px;
+    display: block;
+}
+
+.dates {
     border: solid;
     border-color: black;
     border-width: 1px;
     border-radius: 15px;
-}
-
-#datesBlank {
-    background-color: rgb(205, 205, 205);
 }
 
 /* habit trackers */
