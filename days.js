@@ -57,9 +57,6 @@ else {
     }
 }
 
-
-// alert(weekdays[firstWeekdayOfMonth]);
-
 if (monthStr.toLowerCase() == "februari") {
     day29.innerHTML = "";
     day29.style.border = "none";
@@ -71,15 +68,4 @@ if (monthStr.toLowerCase() == "februari") {
 
 else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" || monthStr.toLowerCase() == "september" || monthStr.toLowerCase() == "november") {
     document.getElementById("date31").style.display = "none";
-
-    //alert("g")
 }
-
-// if (document.getElementById("dates").innerHTML == day) {
-//     document.getElementById("dates").style.backgroundColor = "red";
-// }
-
-// if (document.getElementById("weekdays").innerHTML == weekday.toLowerCase()) 
-// {
-//     document.getElementById("weekdays").style.backgroundColor = "red";
-// }
