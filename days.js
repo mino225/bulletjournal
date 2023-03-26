@@ -1,13 +1,13 @@
 
 var d = new Date();
 const months = ["Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December"];
-const weekdays = ["Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag", "Söndag"];
+const weekdays = ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"];
 
 let day = d.getDate();
 let dayStr = day.toString();
 let month = months[d.getMonth()];
 let monthStr = month.toString();
-let weekday = weekdays[d.getDay()-1];
+let weekday = weekdays[d.getDay()];
 
 const day29 = document.getElementById("date29");
 const day30 = document.getElementById("date30");
@@ -23,13 +23,44 @@ if (firstWeekdayOfMonth < 0) {
     firstWeekdayOfMonth += 7;
 }
 
-if (firstWeekdayOfMonth >= 5) {
-    document.getElementById("datesBlankBeforeSix").style.display = "none";
+if (firstWeekdayOfMonth == 7) {
+    document.getElementById("datesBlankBeforeOne").style.display = "none";
+    document.getElementById("datesBlankBeforeTwo").style.display = "none";
+    document.getElementById("datesBlankBeforeThree").style.display = "none";
+    document.getElementById("datesBlankBeforeFour").style.display = "none";
     document.getElementById("datesBlankBeforeFive").style.display = "none";
+    document.getElementById("datesBlankBeforeSix").style.display = "none";
 }
+
+else {
+    if (firstWeekdayOfMonth <= 5) {
+        document.getElementById("datesBlankBeforeSix").style.display = "none";
+    }
+    
+    if (firstWeekdayOfMonth <= 4) {
+        document.getElementById("datesBlankBeforeFive").style.display = "none";
+    }
+    
+    if (firstWeekdayOfMonth <= 3) {
+        document.getElementById("datesBlankBeforeFour").style.display = "none";
+    }
+    
+    if (firstWeekdayOfMonth <= 2) {
+        document.getElementById("datesBlankBeforeThree").style.display = "none";}
+    
+    if (firstWeekdayOfMonth <= 1) {
+        document.getElementById("datesBlankBeforeTwo").style.display = "none";
+    }
+    
+    if (firstDateOfMonth <= 0) {
+        document.getElementById("datesBlankBeforeOne").style.display = "none";
+    }
+}
+
+
 // alert(weekdays[firstWeekdayOfMonth]);
 
-if (monthStr.toLowerCase() == "mars") {
+if (monthStr.toLowerCase() == "februari") {
     day29.innerHTML = "";
     day29.style.border = "none";
     day30.innerHTML = "";
