@@ -13,10 +13,10 @@ document.getElementById("todaysWeekday").innerHTML = weekday + "\xa0";
 document.getElementById("todaysDate").innerHTML = day + "\xa0";
 document.getElementById("todaysMonth").innerHTML = month;
 
-if (monthStr.toLowerCase() == "februari") {
-    document.getElementById("date29").style.display = "none";
-    document.getElementById("date30").style.display = "none";
-    document.getElementById("date31").style.display = "none";
+if (monthStr.toLowerCase() == "mars") {
+    document.getElementById("date29").innerHTML = "";
+    document.getElementById("date30").innerHTML = "";
+    document.getElementById("date31").innerHTML = "";
 }
 
 else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" || monthStr.toLowerCase() == "september" || monthStr.toLowerCase() == "november") {
