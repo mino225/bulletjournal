@@ -32,37 +32,37 @@
             <div class="datesBlank" id="datesBlankBeforeFive"></div>
             <div class="datesBlank" id="datesBlankBeforeSix"></div>
 
-            <div class="dates" id="test" onclick="markDay()">1</div>
-            <div class="dates" onclick="markDay()">2</div>
-            <div class="dates">3</div>
-            <div class="dates">4</div>
-            <div class="dates">5</div>
-            <div class="dates">6</div>
-            <div class="dates">7</div>
-            <div class="dates">8</div>
-            <div class="dates">9</div>
-            <div class="dates">10</div>
-            <div class="dates">11</div>
-            <div class="dates">12</div>
-            <div class="dates">13</div>
-            <div class="dates">14</div>
-            <div class="dates">15</div>
-            <div class="dates">16</div>
-            <div class="dates">17</div>
-            <div class="dates">18</div>
-            <div class="dates">19</div>
-            <div class="dates">20</div>
-            <div class="dates">21</div>
-            <div class="dates">22</div>
-            <div class="dates">23</div>
-            <div class="dates">24</div>
-            <div class="dates">25</div>
-            <div class="dates">26</div>
-            <div class="dates">27</div>
-            <div class="dates">28</div>
-            <div class="dates" id="date29">29</div>
-            <div class="dates" id="date30">30</div>
-            <div class="dates" id="date31">31</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">1 <p ></p></div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">2</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">3</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">4</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">5</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">6</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">7</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">8</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">9</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">10</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">11</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">12</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">13</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">14</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">15</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">16</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">17</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">18</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">19</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">20</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">21</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">22</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">23</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">24</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">25</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">26</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">27</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">28</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]" id="date29">29</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]" id="date30">30</div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]" id="date31">31</div>
             
             <div class="datesBlank"></div>
             <div class="datesBlank"></div>
@@ -73,10 +73,10 @@
         </div>
 
         <div class="habits">
-            <p><span></span>😀</p>
-            <p><span></span>🙂</p>
-            <p><span></span>😐</p>
-            <p><span></span>🙁</p>
+            <p><span class="habitMarker" id="happiestMood" onclick="changeColorHappiest()"></span>😀</p>
+            <p><span class="habitMarker" id="happyMood" onclick="changeColorHappy()"></span>🙂</p>
+            <p><span class="habitMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
+            <p><span class="habitMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
         </div>
     </div>
 

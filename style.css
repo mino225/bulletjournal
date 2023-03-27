@@ -75,6 +75,10 @@ body {
     border-radius: 15px;
 }
 
+.dates:hover {
+    cursor: pointer;
+}
+
 /* habit trackers */
 .habits {
     flex: 30%;
@@ -82,7 +86,26 @@ body {
 }
 
 .habits span {
-    background-color: rgb(35, 109, 109);
     padding: 10px 20px;
     margin-right: 5px; 
+}
+
+.habitMarker:hover {
+    cursor: pointer;
+}
+
+#happiestMood {
+    background-color: rgb(255, 156, 156);
+}
+
+#happyMood {
+    background-color: rgb(255, 80, 80);
+}
+
+#okMood {
+    background-color: rgb(179, 10, 10);
+}
+
+#sadMood {
+    background-color: rgb(77, 3, 3);
 }
