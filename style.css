@@ -90,6 +90,12 @@ body {
     margin-right: 5px; 
 }
 
+.habitMarker {
+    border: solid;
+    border-width: 1px;
+    border-color: black;
+}
+
 .habitMarker:hover {
     cursor: pointer;
 }
@@ -108,4 +114,8 @@ body {
 
 #sadMood {
     background-color: rgb(77, 3, 3);
+}
+
+#removeMood {
+    background-color: white;
 }
