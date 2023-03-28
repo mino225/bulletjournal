@@ -32,6 +32,7 @@ if (firstWeekdayOfMonth == 7) {
 }
 
 else {
+    
     if (firstWeekdayOfMonth <= 5) {
         document.getElementById("datesBlankBeforeSix").style.display = "none";
     }
@@ -45,15 +46,16 @@ else {
     }
     
     if (firstWeekdayOfMonth <= 2) {
-        document.getElementById("datesBlankBeforeThree").style.display = "none";}
+        document.getElementById("datesBlankBeforeThree").style.display = "none";
+    }
     
     if (firstWeekdayOfMonth <= 1) {
         document.getElementById("datesBlankBeforeTwo").style.display = "none";
     }
     
-    if (firstDateOfMonth <= 0) {
-        document.getElementById("datesBlankBeforeOne").style.display = "none";
-    }
+    // if (firstDateOfMonth <= 0) {
+    //     document.getElementById("datesBlankBeforeOne").style.display = "none";
+    // }
 }
 
 if (monthStr.toLowerCase() == "februari") {
@@ -68,3 +70,9 @@ if (monthStr.toLowerCase() == "februari") {
 else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" || monthStr.toLowerCase() == "september" || monthStr.toLowerCase() == "november") {
     document.getElementById("date31").style.display = "none";
 }
+
+for (let i = 0; i < document.getElementsByClassName("dates").length; i++) {
+    if (dayStr == document.getElementsByClassName("dates")[i].innerHTML) {
+        document.getElementsByClassName("dates")[i].style.backgroundColor == "yellow";
+    }
+  }
