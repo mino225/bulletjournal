@@ -85,6 +85,14 @@ body {
     padding: 5px;
 }
 
+.infoText {
+    width: 50%;
+    text-align: center;
+    border: solid;
+    border-width: 1px;
+    padding: 10px;
+}
+
 .habits span {
     padding: 10px 20px;
     margin-right: 5px; 

@@ -71,8 +71,11 @@ else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" |
     document.getElementById("date31").style.display = "none";
 }
 
-for (let i = 0; i < document.getElementsByClassName("dates").length; i++) {
-    if (dayStr == document.getElementsByClassName("dates")[i].innerHTML) {
-        document.getElementsByClassName("dates")[i].style.backgroundColor == "yellow";
+let dates = document.getElementsByClassName("dates");
+
+for (let i = 0; i < dates.length; i++) {
+    if (dates[i].innerHTML == dayStr) {
+        dates[i].style.fontWeight = 'bold';
+        dates[i].style.fontSize = "large";
     }
   }
