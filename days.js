@@ -74,7 +74,7 @@ else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" |
 let dates = document.getElementsByClassName("dates");
 
 for (let i = 0; i < dates.length; i++) {
-    if (dates[i].innerHTML == dayStr) {
+    if (dates[i].innerHTML.startsWith(dayStr + " ") == true) {
         dates[i].style.fontWeight = 'bold';
         dates[i].style.fontSize = "large";
     }
