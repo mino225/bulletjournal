@@ -141,10 +141,8 @@ body {
 /* OM OSS */
 .aboutUsContent {
     width: 60%;
-    align-items: center;
 }
 
 .aboutUsContent img {
     width: 50%;
-    align-self: center;
 }
