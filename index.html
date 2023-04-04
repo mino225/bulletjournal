@@ -34,7 +34,7 @@
             <div class="datesBlank" id="datesBlankBeforeFive"></div>
             <div class="datesBlank" id="datesBlankBeforeSix"></div>
 
-            <div class="dates" onclick="this.style.backgroundColor=colors[number]">1 <textarea type="text" class="inputBox"></textarea></div>
+            <div class="dates" onclick="this.style.backgroundColor=colors[number]">1 <textarea type="text" class="inputBox" onblur="saveData()"></textarea></div>
             <div class="dates" onclick="this.style.backgroundColor=colors[number]">2 <textarea type="text" class="inputBox"></textarea></div>
             <div class="dates" onclick="this.style.backgroundColor=colors[number]">3 <textarea type="text" class="inputBox"></textarea></div>
             <div class="dates" onclick="this.style.backgroundColor=colors[number]">4 <textarea type="text" class="inputBox"></textarea></div>
@@ -85,5 +85,6 @@
 
     <script src="days.js"></script>
     <script src="markDays.js"></script>
+    <script src="saveInformation.js"></script>
 </body>
 </html>
