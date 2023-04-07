@@ -1,25 +1,30 @@
-// let firstDateValue;
-let firstDate = document.getElementById("writeOne");
-
-function saveData() {
-    firstDate.style.backgroundColor = "red";
-    let value = firstDate.innerText;
-    document.cookie = "writtenInFirst=" + encodeURIComponent(value);    
+let dates = getElementsByClassName("inputBox");
+function saveData(number) {
+  alert("1");
+  let changedDate = dates[int(number)];
+  alert("2");
+  changedDate.style.backgroundColor = "red";
+  alert("3");
+  let value = changedDate.value;
+  alert("4");
+  document.cookie = "writtenIn" + number + "=" + encodeURIComponent(value);    
+  alert("sparat");
 }
 
 function getCookie(cname) {
-    let name = cname + "=";
-    let ca = document.cookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i];
-      while (c.charAt(0) == ' ') {
-        c = c.substring(1);
-      }
-      if (c.indexOf(name) == 0) {
-        return c.substring(name.length, c.length);
-      }
+  alert("hämtar");
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
-    return "";
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
 }
 
 firstDate.innerText = getCookie("writtenInFirst");
