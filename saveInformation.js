@@ -1,18 +1,11 @@
-let listOfDates = getElementsByClassName("inputBox");
 function saveData(number) {
-  alert("1");
-  let changedDate = listOfDates[number];
-  alert("2");
-  changedDate.style.backgroundColor = "red";
-  alert("3");
+  let changedDate = document.getElementsByClassName("inputBox")[number];
   let value = changedDate.value;
-  alert("4");
   document.cookie = "writtenIn" + number + "=" + encodeURIComponent(value);    
-  alert("sparat");
 }
 
+// funktion getCookie från https://www.w3schools.com/js/js_cookies.asp
 function getCookie(cname) {
-  alert("hämtar");
   let name = cname + "=";
   let ca = document.cookie.split(';');
   for(let i = 0; i < ca.length; i++) {
@@ -27,7 +20,12 @@ function getCookie(cname) {
   return "";
 }
 
-listOfDates[0].value = getCookie("writtenIn0");
+for(let i = 0; i < 31; i++) {
+  document.getElementsByClassName("inputBox")[i].value = getCookie("writtenIn" + i)
+}
+
+// document.getElementsByClassName("inputBox")[0].value = getCookie("writtenIn0");
+// document.getElementsByClassName("inputBox")[1].value = getCookie("writtenIn1");
 
 
 // firstDate.value = encodeURIComponent(document.cookie);
