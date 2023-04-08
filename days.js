@@ -78,4 +78,4 @@ for (let i = 0; i < dates.length; i++) {
         dates[i].style.fontWeight = 'bold';
         dates[i].style.fontSize = "large";
     }
-  }
+}

@@ -1,7 +1,7 @@
-let dates = getElementsByClassName("inputBox");
+let listOfDates = getElementsByClassName("inputBox");
 function saveData(number) {
   alert("1");
-  let changedDate = dates[int(number)];
+  let changedDate = listOfDates[number];
   alert("2");
   changedDate.style.backgroundColor = "red";
   alert("3");
@@ -27,16 +27,9 @@ function getCookie(cname) {
   return "";
 }
 
-firstDate.innerText = getCookie("writtenInFirst");
+listOfDates[0].value = getCookie("writtenIn0");
 
-// function getCookie(cookieName) {
-//     let name = cookieName.split("=");
-//     alert(name[1]);
-//     return name[1];
-// }
 
-let firstDate = document.getElementById("writeOne");
-firstDate.value = getCookie(firstDateValue);
 // firstDate.value = encodeURIComponent(document.cookie);
 
 // function getCookie(name) {
