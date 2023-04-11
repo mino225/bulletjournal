@@ -50,6 +50,20 @@ function getCookie(cname) {
   return "";
 }
 
+function emptyCalender() {
+  // skriver ut texten från cookies
+  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    document.getElementsByClassName("inputBox")[i].value = "";
+    document.cookie = "writtenIn" + i + "=" + "";
+  }
+
+  // sätter bakgroundsfärgen
+  for(let i = 0; i < document.getElementsByClassName("dates").length; i++) {
+    document.getElementsByClassName("dates")[i].style.backgroundColor = colors[0];
+    document.cookie = "colorOf" + i + "=" + colors[0];
+  }
+}
+
 // skriver ut texten från cookies
 for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
   document.getElementsByClassName("inputBox")[i].value = getCookie("writtenIn" + i)

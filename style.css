@@ -100,6 +100,14 @@ body {
     margin-right: 5px; 
 }
 
+.buttonEmpty {
+    margin-top: 25px;
+    width: 30%;
+    text-align: center;
+    background-color: rgb(237, 237, 237);
+    padding: 5px;
+}
+
 .habitMarker {
     border: solid;
     border-width: 1px;
