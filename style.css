@@ -89,6 +89,34 @@ body {
     cursor: pointer;
 }
 
+/* mobilvy kalender */
+@media (max-width: 600px) {
+    .monthName {
+        font-size: large;
+    }
+
+    .infoText {
+        flex: 80%; 
+    }
+
+    .days {
+        flex: 100%;
+    }
+    
+    .dates {
+        flex: 100%;
+        height: 80px
+    }
+
+    .weekdays, .datesBlank {
+        display: none;
+    } 
+
+    .inputBox {
+        height: 40px !important;
+    }
+  }
+
 /* habit trackers */
 .habits {
     flex: 30%;
