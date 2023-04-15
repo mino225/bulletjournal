@@ -15,8 +15,19 @@
         </div>
 
         <h1 class="monthName"><span id="todaysWeekday">veckodag</span><span id="todaysDate">datum</span><span id="todaysMonth">månad</span></h1>
-        <p class="infoText">Klicka på en dag för att lägga till en anteckning på den. För att markera dagen med en etikett trycker du på rätt färg i menyn till höger och klickar sedan på dagen.</p>
+        
+        <div class="instructions">
+            <p class="infoText">Klicka på en dag för att lägga till en anteckning på den. För att markera dagen med en etikett trycker du på rätt färg i menyn till höger och klickar sedan på dagen.</p>
+        </div>
 
+        <div class="habits">
+            <p><span class="habitMarker" id="happiestMood" onclick="changeColorHappiest()"></span>😀</p>
+            <p><span class="habitMarker" id="happyMood" onclick="changeColorHappy()"></span>🙂</p>
+            <p><span class="habitMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
+            <p><span class="habitMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
+            <p><span class="habitMarker" id="removeMood" onclick="changeColorRemove()"></span>Ta bort</p>
+            <p class="buttonEmpty habitMarker" onclick="emptyCalender()">Töm kalendern</p>
+        </div>
 
         <div class="days">
             <div class="weekdays">Måndag</div>
@@ -72,15 +83,6 @@
             <div class="datesBlank"></div>
             <div class="datesBlank"></div>
             <div class="datesBlank"></div>
-        </div>
-
-        <div class="habits">
-            <p><span class="habitMarker" id="happiestMood" onclick="changeColorHappiest()"></span>😀</p>
-            <p><span class="habitMarker" id="happyMood" onclick="changeColorHappy()"></span>🙂</p>
-            <p><span class="habitMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
-            <p><span class="habitMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
-            <p><span class="habitMarker" id="removeMood" onclick="changeColorRemove()"></span>Ta bort</p>
-            <p class="buttonEmpty habitMarker" onclick="emptyCalender()">Töm kalendern</p>
         </div>
     </div>
 

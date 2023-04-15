@@ -43,6 +43,13 @@ body {
     margin-bottom: 0px;
 }
 
+/* instruktioner */
+.instructions {
+    flex: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .infoText {
     width: 50%;
     text-align: center;
@@ -54,7 +61,7 @@ body {
 
 /* datum */
 .days {
-    flex: 60%;
+    flex: 70%;
     padding: 0px 50px 50px 50px;
     display: flex;
     flex-wrap: wrap;
@@ -90,7 +97,7 @@ body {
 }
 
 /* mobilvy kalender */
-@media (max-width: 600px) {
+@media (max-width: 955px) {
     .monthName {
         font-size: large;
     }
@@ -101,10 +108,12 @@ body {
 
     .days {
         flex: 100%;
+        display: flex;
     }
     
     .dates {
-        flex: 100%;
+        flex: 45%;
+        margin: 5px 5px;
         height: 80px
     }
 
@@ -119,8 +128,9 @@ body {
 
 /* habit trackers */
 .habits {
-    flex: 30%;
+    flex: 20%;
     padding: 5px;
+    margin-left: 5%;
 }
 
 .habits span {
