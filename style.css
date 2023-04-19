@@ -96,40 +96,6 @@ body {
     cursor: pointer;
 }
 
-/* mobilvy kalender */
-@media (max-width: 955px) {
-    .monthName {
-        font-size: large;
-    }
-
-    .infoText {
-        flex: 80%; 
-    }
-
-    .days {
-        flex: 100%;
-        display: flex;
-    }
-    
-    .dates {
-        flex: 45%;
-        margin: 5px 5px;
-        height: 80px
-    }
-
-    .weekdays, .datesBlank {
-        display: none;
-    } 
-
-    .inputBox {
-        height: 40px !important;
-    }
-
-    .emptyBlock {
-        display: none;
-    }
-  }
-
 /* habit trackers */
 .habits {
     flex: 20%;
@@ -210,3 +176,43 @@ body {
 .aboutUsContent img {
     width: 50%;
 }
+
+/* MOBILANPASSAD */
+@media (max-width: 955px) {
+    /* INDEX */
+    .monthName {
+        font-size: large;
+    }
+
+    .infoText {
+        flex: 80%; 
+    }
+
+    .days {
+        flex: 100%;
+        display: flex;
+    }
+    
+    .dates {
+        flex: 45%;
+        margin: 5px 5px;
+        height: 80px
+    }
+
+    .weekdays, .datesBlank {
+        display: none;
+    } 
+
+    .inputBox {
+        height: 40px !important;
+    }
+
+    .emptyBlock {
+        display: none;
+    }
+
+    /* OM OSS */
+    .aboutUsContent img {
+        width: 100%;
+    }
+  }
