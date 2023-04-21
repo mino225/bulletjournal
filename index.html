@@ -46,7 +46,7 @@
             <div class="datesBlank" id="datesBlankBeforeFive"></div>
             <div class="datesBlank" id="datesBlankBeforeSix"></div>
 
-            <div class="dates" onclick="changeColor(0)">1 <textarea type="text" class="inputBox" onblur="saveData(0)"></textarea></div>
+            <div class="dates" onclick="changeColor(0)">1 <textarea type="text" class="inputBox" onblur="saveData(0)" id="first"></textarea></div>
             <div class="dates" onclick="changeColor(1)">2 <textarea type="text" class="inputBox" onblur="saveData(1)"></textarea></div>
             <div class="dates" onclick="changeColor(2)">3 <textarea type="text" class="inputBox" onblur="saveData(2)"></textarea></div>
             <div class="dates" onclick="changeColor(3)">4 <textarea type="text" class="inputBox" onblur="saveData(3)"></textarea></div>
@@ -89,29 +89,6 @@
 
     <script src="days.js"></script>
     <script src="saveInformation.js"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.20.0/firebase-app.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        const firebaseConfig = {
-          apiKey: "AIzaSyB5SUBsKSwryxkIA7D-PaVGwqNEjyGPZQU",
-          authDomain: "bulletjournalonline-2d341.firebaseapp.com",
-          databaseURL: "https://bulletjournalonline-2d341-default-rtdb.europe-west1.firebasedatabase.app",
-          projectId: "bulletjournalonline-2d341",
-          storageBucket: "bulletjournalonline-2d341.appspot.com",
-          messagingSenderId: "894734888494",
-          appId: "1:894734888494:web:b0bdb333274360252279bf"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-
-        import {getDatabase, set, get, update, remove, ref, child}
-        from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
-
-      </script>
+    <script src="saveInDatabase.js" type="module"></script>
 </body>
 </html>
