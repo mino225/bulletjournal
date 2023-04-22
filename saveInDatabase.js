@@ -21,5 +21,30 @@ import {getDatabase, set, get, update, remove, ref, child}
 from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 db = getDatabase();
+var enterID = document.getElementById("enterID");
 
-var first = document.getElementById("first");
+function insertData(number) {
+  let changedDate = document.getElementsByClassName("inputBox")[number];
+  set(ref(db, "CalenderContent/" + enterID.value), {
+    Content: changedDate.value,
+    ID: enterID.value
+  })
+  .then(()=>{
+    alert("Innehållet är sparat.")
+  })
+  .catch((error)=>{
+    alert(error);
+  })
+}
+
+function findData() {
+
+}
+
+function updateData() {
+
+}
+
+function removeData() {
+
+}

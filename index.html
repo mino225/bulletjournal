@@ -14,6 +14,7 @@
             <a href="index.html">START</a>
         </div>
 
+        <input id="enterID" type="text">
         <h1 class="monthName"><span id="todaysWeekday">veckodag</span><span id="todaysDate">datum</span><span id="todaysMonth">månad</span></h1>
         
         <div class="instructions">
@@ -46,7 +47,7 @@
             <div class="datesBlank" id="datesBlankBeforeFive"></div>
             <div class="datesBlank" id="datesBlankBeforeSix"></div>
 
-            <div class="dates" onclick="changeColor(0)">1 <textarea type="text" class="inputBox" onblur="saveData(0)" id="first"></textarea></div>
+            <div class="dates" onclick="changeColor(0)">1 <textarea type="text" class="inputBox" onblur="insertData(0)"></textarea></div>
             <div class="dates" onclick="changeColor(1)">2 <textarea type="text" class="inputBox" onblur="saveData(1)"></textarea></div>
             <div class="dates" onclick="changeColor(2)">3 <textarea type="text" class="inputBox" onblur="saveData(2)"></textarea></div>
             <div class="dates" onclick="changeColor(3)">4 <textarea type="text" class="inputBox" onblur="saveData(3)"></textarea></div>
