@@ -22,11 +22,11 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 db = getDatabase();
 var enterID = document.getElementById("enterID");
-
-function insertData(number) {
-  let changedDate = document.getElementsByClassName("inputBox")[number];
+var first = document.getElementById("first");
+function insertData() {
+  // let changedDate = document.getElementsByClassName("inputBox")[0];
   set(ref(db, "CalenderContent/" + enterID.value), {
-    Content: changedDate.value,
+    // Content: first.value,
     ID: enterID.value
   })
   .then(()=>{

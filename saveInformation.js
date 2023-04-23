@@ -57,7 +57,7 @@ function emptyCalender() {
     document.cookie = "writtenIn" + i + "=" + "";
   }
 
-  // sätter bakgroundsfärgen
+  // sätter bakgrundsfärgen
   for(let i = 0; i < document.getElementsByClassName("dates").length; i++) {
     document.getElementsByClassName("dates")[i].style.backgroundColor = colors[0];
     document.cookie = "colorOf" + i + "=" + colors[0];
