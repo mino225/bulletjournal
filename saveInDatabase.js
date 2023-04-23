@@ -20,13 +20,18 @@ const app = initializeApp(firebaseConfig);
 import {getDatabase, set, get, update, remove, ref, child}
 from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
-db = getDatabase();
+let db = getDatabase();
 var enterID = document.getElementById("enterID");
-var first = document.getElementById("first");
-function insertData() {
-  // let changedDate = document.getElementsByClassName("inputBox")[0];
-  set(ref(db, "CalenderContent/" + enterID.value), {
-    // Content: first.value,
+// var saveButton = document.getElementById("save");
+
+function test() {
+  alert("test");
+}
+
+function insertData(number) {
+  let changedDate = document.getElementsByClassName("inputBox")[number];
+  set(ref(db, "Content/" + enterID.value + number), {
+    Content: changedDate.value,
     ID: enterID.value
   })
   .then(()=>{
@@ -35,6 +40,7 @@ function insertData() {
   .catch((error)=>{
     alert(error);
   })
+  return
 }
 
 function findData() {
