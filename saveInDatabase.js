@@ -22,26 +22,34 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 let db = getDatabase();
 var enterID = document.getElementById("enterID");
-// var saveButton = document.getElementById("save");
+var saveButton = document.getElementById("save");
 
 function test() {
   alert("test");
 }
 
-function insertData(number) {
-  let changedDate = document.getElementsByClassName("inputBox")[number];
-  set(ref(db, "Content/" + enterID.value + number), {
-    Content: changedDate.value,
-    ID: enterID.value
-  })
-  .then(()=>{
-    alert("Innehållet är sparat.")
-  })
-  .catch((error)=>{
-    alert(error);
-  })
-  return
+function addData() {
+  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    let changedDate = document.getElementsByClassName("inputBox")[i];
+    set(ref(db, "Content/" + enterID.value + "/" + i), {
+      Content: changedDate.value,
+      ID: enterID.value
+    })
+    .then(()=>{
+      // alert("Innehållet är sparat.")
+    })
+    .catch((error)=>{
+      alert(error);
+    })
+  }
+  alert("Allt sparat");
+  
 }
+
+// let firstDate = document.getElementsByClassName("inputBox")[0];
+// firstDate.addEventListener("focusOut", addData(0));
+
+saveButton.addEventListener("click", addData(0))
 
 function findData() {
 
