@@ -24,10 +24,6 @@ let db = getDatabase();
 var enterID = document.getElementById("enterID");
 var saveButton = document.getElementById("save");
 
-function test() {
-  alert("test");
-}
-
 function addData() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let changedDate = document.getElementsByClassName("inputBox")[i];
@@ -43,13 +39,13 @@ function addData() {
     })
   }
   alert("Allt sparat");
-  
+  return true;
 }
 
 // let firstDate = document.getElementsByClassName("inputBox")[0];
 // firstDate.addEventListener("focusOut", addData(0));
 
-saveButton.addEventListener("click", addData(0))
+saveButton.addEventListener("click", addData)
 
 function findData() {
 
