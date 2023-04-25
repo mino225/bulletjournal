@@ -22,7 +22,9 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 let db = getDatabase();
 var enterID = document.getElementById("enterID");
+var emptyButton = document.getElementById("empty");
 var saveButton = document.getElementById("save");
+var showButton = document.getElementById("show");
 
 function addData() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
@@ -45,10 +47,26 @@ function addData() {
 // let firstDate = document.getElementsByClassName("inputBox")[0];
 // firstDate.addEventListener("focusOut", addData(0));
 
+emptyButton.addEventListener("click", removeData)
 saveButton.addEventListener("click", addData)
 
 function findData() {
+  const dbref = ref(db)
+  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    date = document.getElementsByClassName("inputBox")[i];
+    get(child(dbref, "Content/" + enterID.value + "/" + i))
+    .then((snapshot)=>{
+      if (snapshot.exists()) {
+        date.value = snapshot.val().Content;
+      } else {
+        alert("Ingen data hittad.");
+      }
+    })
 
+    .catch((error)=>{
+      alert(error);
+    })
+  }
 }
 
 function updateData() {

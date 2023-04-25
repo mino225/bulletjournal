@@ -59,6 +59,13 @@ body {
     font-style: italic;
 }
 
+/* knappar */
+
+button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
 /* datum */
 .days {
     flex: 70%;
@@ -118,15 +125,6 @@ body {
 .habits span {
     padding: 10px 20px;
     margin-right: 5px; 
-}
-
-.buttonEmpty {
-    margin-top: 25px;
-    width: 20%;
-    text-align: center;
-    background-color: rgb(237, 237, 237);
-    padding: 5px;
-    flex: 100%;
 }
 
 .habitMarker {
