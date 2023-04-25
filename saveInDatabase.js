@@ -31,36 +31,36 @@ function addData() {
     let changedDate = document.getElementsByClassName("inputBox")[i];
     set(ref(db, "Content/" + enterID.value + "/" + i), {
       Content: changedDate.value,
-      ID: enterID.value
     })
-    .then(()=>{
-      // alert("Innehållet är sparat.")
-    })
+    // .then(()=>{
+      
+    // })
     .catch((error)=>{
       alert(error);
     })
   }
-  alert("Allt sparat");
+  alert("Kalendern sparades.");
   return true;
 }
 
 // let firstDate = document.getElementsByClassName("inputBox")[0];
 // firstDate.addEventListener("focusOut", addData(0));
 
-emptyButton.addEventListener("click", removeData)
-saveButton.addEventListener("click", addData)
+emptyButton.addEventListener("click", removeData);
+saveButton.addEventListener("click", addData);
+showButton.addEventListener("click", findData);
 
 function findData() {
   const dbref = ref(db)
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
-    date = document.getElementsByClassName("inputBox")[i];
+    let date = document.getElementsByClassName("inputBox")[i];
     get(child(dbref, "Content/" + enterID.value + "/" + i))
     .then((snapshot)=>{
       if (snapshot.exists()) {
         date.value = snapshot.val().Content;
-      } else {
-        alert("Ingen data hittad.");
-      }
+      } // else {
+      //   alert("Ingen data hittad.");
+      // }
     })
 
     .catch((error)=>{
@@ -69,10 +69,16 @@ function findData() {
   }
 }
 
-function updateData() {
-
-}
-
 function removeData() {
-
+  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    remove(ref(db, "Content/" + enterID.value + "/" + i))
+    // .then(()=>{
+    //   alert("Datan togs bort.");
+    // })
+    .catch((error)=>{
+      alert(error);
+    })
+  }
+  alert("Datan togs bort.")
+  
 }
