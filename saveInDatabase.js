@@ -29,12 +29,11 @@ var showButton = document.getElementById("show");
 function addData() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let changedDate = document.getElementsByClassName("inputBox")[i];
+    let background = document.getElementsByClassName("dates")[i];
     set(ref(db, "Content/" + enterID.value + "/" + i), {
       Content: changedDate.value,
+      Color: background.style.backgroundColor
     })
-    // .then(()=>{
-      
-    // })
     .catch((error)=>{
       alert(error);
     })
@@ -46,21 +45,29 @@ function addData() {
 // let firstDate = document.getElementsByClassName("inputBox")[0];
 // firstDate.addEventListener("focusOut", addData(0));
 
-emptyButton.addEventListener("click", removeData);
-saveButton.addEventListener("click", addData);
-showButton.addEventListener("click", findData);
+// window.onload = function() {
+//   for(let i = 0; i < document.getElementsByClassName("dates").length; i++) {
+//     let background = document.getElementsByClassName("dates")[i]; 
+//     background.style.backgroundColor = rgb(255, 255, 255);
+//   }
+// }
 
 function findData() {
   const dbref = ref(db)
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let date = document.getElementsByClassName("inputBox")[i];
+    let background = document.getElementsByClassName("dates")[i];
+    
     get(child(dbref, "Content/" + enterID.value + "/" + i))
     .then((snapshot)=>{
       if (snapshot.exists()) {
         date.value = snapshot.val().Content;
-      } // else {
-      //   alert("Ingen data hittad.");
-      // }
+        background.style.backgroundColor = snapshot.val().Color;
+        
+      } else {
+        date.value = "";
+        background.style.backgroundColor = "rgb(255, 255, 255";
+      }
     })
 
     .catch((error)=>{
@@ -71,14 +78,23 @@ function findData() {
 
 function removeData() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    let background = document.getElementsByClassName("dates")[i]; 
     remove(ref(db, "Content/" + enterID.value + "/" + i))
     // .then(()=>{
     //   alert("Datan togs bort.");
+    // })
+    // .then(()=>{
+    //   background.style.backgroundColor = rgb(255, 255, 255);
     // })
     .catch((error)=>{
       alert(error);
     })
   }
   alert("Datan togs bort.")
+  background.style.backgroundColor = "rgb(255, 255, 255)";
   
 }
+
+emptyButton.addEventListener("click", removeData);
+saveButton.addEventListener("click", addData);
+showButton.addEventListener("click", findData);
