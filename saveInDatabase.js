@@ -26,6 +26,17 @@ var emptyButton = document.getElementById("empty");
 var saveButton = document.getElementById("save");
 var showButton = document.getElementById("show");
 
+function emptyCalender() {
+  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+    let background = document.getElementsByClassName("dates")[i]; 
+    let date = document.getElementsByClassName("inputBox")[i];
+    background.style.backgroundColor = "rgb(255, 255, 255)";
+    date.style.value = "";
+  }
+
+  enterID.value = "";
+}
+
 function addData() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let changedDate = document.getElementsByClassName("inputBox")[i];
@@ -42,16 +53,6 @@ function addData() {
   return true;
 }
 
-// let firstDate = document.getElementsByClassName("inputBox")[0];
-// firstDate.addEventListener("focusOut", addData(0));
-
-// window.onload = function() {
-//   for(let i = 0; i < document.getElementsByClassName("dates").length; i++) {
-//     let background = document.getElementsByClassName("dates")[i]; 
-//     background.style.backgroundColor = rgb(255, 255, 255);
-//   }
-// }
-
 function findData() {
   const dbref = ref(db)
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
@@ -66,7 +67,7 @@ function findData() {
         
       } else {
         date.value = "";
-        background.style.backgroundColor = "rgb(255, 255, 255";
+        background.style.backgroundColor = "rgb(255, 255, 255)";
       }
     })
 
@@ -74,26 +75,28 @@ function findData() {
       alert(error);
     })
   }
+  alert("Den sparade kalendern visas.")
 }
 
 function removeData() {
-  for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
-    let background = document.getElementsByClassName("dates")[i]; 
-    remove(ref(db, "Content/" + enterID.value + "/" + i))
-    // .then(()=>{
-    //   alert("Datan togs bort.");
-    // })
-    // .then(()=>{
-    //   background.style.backgroundColor = rgb(255, 255, 255);
-    // })
-    .catch((error)=>{
-      alert(error);
-    })
+  // let sure = prompt("Är du säker på att du vill ta bort din kalender?");
+  if (confirm("Är du säker på att du vill ta bort din kalender?")) {
+    for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
+      let date = document.getElementsByClassName("inputBox")[i];
+      let background = document.getElementsByClassName("dates")[i]; 
+      remove(ref(db, "Content/" + enterID.value + "/" + i))
+      .catch((error)=>{
+        alert(error);
+      })
+      date.value = "";
+      background.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+    enterID.value = "";
+    alert("Datan togs bort.");
   }
-  alert("Datan togs bort.")
-  background.style.backgroundColor = "rgb(255, 255, 255)";
-  
 }
+
+emptyCalender();
 
 emptyButton.addEventListener("click", removeData);
 saveButton.addEventListener("click", addData);

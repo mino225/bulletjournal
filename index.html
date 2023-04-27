@@ -18,7 +18,7 @@
         
         <div class="instructions">
             <div class="information">
-                <p class="infoText">Klicka på en dag för att lägga till en anteckning på den. För att markera dagen med en etikett trycker du på rätt färg i menyn till höger och klickar sedan på dagen.</p>
+                <p class="infoText">Klicka på en dag för att lägga till en anteckning på den. För att markera dagen med en etikett trycker du på rätt färg i menyn till höger och klickar sedan på dagen. Vill du spara din kalender? Fyll i ett användarnamn och tryck på spara! Med hjälp av ditt användarnamn kommer du åt din kalender senare.</p>
             </div>
             
             <div class="enterID">
@@ -33,9 +33,9 @@
             <p><span class="habitMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
             <p><span class="habitMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
             <p><span class="habitMarker" id="removeMood" onclick="changeColorRemove()"></span>- &nbsp&nbsp</p>
-            <button type="button" id="empty">Töm</button>
-            <button type="button" id="save">Spara</button>
             <button type="button" id="show">Visa din kalender</button>
+            <button type="button" id="save">Spara</button>
+            <button type="button" id="empty">Ta bort</button>            
             <span class="emptyBlock"></span>
         </div>
 
@@ -98,7 +98,7 @@
 
     <script src="saveInDatabase.js" type="module"></script>
     <script src="days.js"></script>
-    <script src="saveInformation.js"></script>
+    <script src="changeColor.js"></script>
     
 </body>
 </html>

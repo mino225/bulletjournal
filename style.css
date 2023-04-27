@@ -163,15 +163,17 @@ button {
 }
 
 #happyMood {
-    background-color: rgb(255, 80, 80);
+    background-color: rgb(175, 117, 117);
+    
 }
 
 #okMood {
-    background-color: rgb(179, 10, 10);
+    background-color: rgb(255, 80, 80);
+    
 }
 
 #sadMood {
-    background-color: rgb(77, 3, 3);
+    background-color: rgb(179, 10, 10);
 }
 
 #removeMood {
