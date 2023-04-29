@@ -198,6 +198,21 @@ button {
 }
 
 /* HABITS */
+/* text och färger */
+.habitColor {
+    flex: 20%;
+    margin-right: 5px;
+    height: 30px;
+    border: solid;
+    border-width: 1px;
+}
+
+.daysHabits input {
+    flex: 75%;
+    height: 30px;
+}
+
+/* datum */
 .daysHabits {
     flex: 30%;
     height: 50%;
@@ -216,7 +231,6 @@ button {
 
 .datesHabits, .datesBlankHabits {
     height: 50px;
-    
     flex: 10%;
 }
 
@@ -262,6 +276,16 @@ button {
 
     .emptyBlock {
         display: none;
+    }
+
+    /* HABITS */
+    .datesHabits {
+        flex: 10%;
+        height: 40px;
+    }
+
+    .datesBlankHabits {
+        display: block;
     }
 
     /* OM OSS */

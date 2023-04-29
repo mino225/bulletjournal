@@ -79,7 +79,6 @@ function findData() {
 }
 
 function removeData() {
-  // let sure = prompt("Är du säker på att du vill ta bort din kalender?");
   if (confirm("Är du säker på att du vill ta bort din kalender?")) {
     for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
       let date = document.getElementsByClassName("inputBox")[i];

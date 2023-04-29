@@ -9,6 +9,17 @@ let monthStr = month.toString();
 let weekday = weekdays[d.getDay()];
 let dates = document.getElementsByClassName("dates");
 
+const colors = ["lavender", "coral", "lightgreen"];
+
+function addHabitToDay(calender, number) {
+    let markedDay = document.getElementsByClassName("datesHabits")[calender*31 + number];
+    markedDay.style.backgroundColor = colors[calender];
+}
+
+for (let i = 0; i < document.getElementsByClassName("habitColor").length; i++) {
+    document.getElementsByClassName("habitColor")[i].style.backgroundColor = colors[i];
+}
+
 let firstDateOfMonth = day % 7
 let firstWeekdayOfMonth = d.getDay() - firstDateOfMonth;
 if (firstWeekdayOfMonth < 0) {
