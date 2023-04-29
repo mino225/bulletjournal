@@ -68,7 +68,7 @@ if (monthStr.toLowerCase() == "februari") {
 }
 
 else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" || monthStr.toLowerCase() == "september" || monthStr.toLowerCase() == "november") {
-    document.getElementById("date31").style.display = "none";
+    day31.style.display = "none";
 }
 
 let dates = document.getElementsByClassName("dates");
