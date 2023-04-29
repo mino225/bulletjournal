@@ -22,6 +22,9 @@ function changeColorRemove() {
 }
 
 function changeColor(number) {
-  let changedDate = document.getElementsByClassName("dates")[number];
-  changedDate.style.backgroundColor = colors[colorNumber];
+  let textBox = document.getElementsByClassName("inputBox")[number];
+  if (textBox != document.activeElement) {
+    let changedDate = document.getElementsByClassName("dates")[number];
+    changedDate.style.backgroundColor = colors[colorNumber];
+  }
 }
