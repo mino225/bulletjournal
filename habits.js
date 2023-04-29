@@ -13,7 +13,12 @@ const colors = ["lavender", "coral", "lightgreen"];
 
 function addHabitToDay(calender, number) {
     let markedDay = document.getElementsByClassName("datesHabits")[calender*31 + number];
-    markedDay.style.backgroundColor = colors[calender];
+    if (markedDay.style.backgroundColor != colors[calender]) {
+        markedDay.style.backgroundColor = colors[calender];
+    } else {
+        markedDay.style.backgroundColor = "rgb(255, 255, 255)";
+    }
+    
 }
 
 for (let i = 0; i < document.getElementsByClassName("habitColor").length; i++) {

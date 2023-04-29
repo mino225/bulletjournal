@@ -21,10 +21,14 @@ import {getDatabase, set, get, remove, ref, child}
 from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 let db = getDatabase();
-var enterID = document.getElementById("enterID");
-var emptyButton = document.getElementById("empty");
-var saveButton = document.getElementById("save");
-var showButton = document.getElementById("show");
+var mEnterID = document.getElementById("enterIDMoods");
+var mEmptyButton = document.getElementById("emptyMoods");
+var mSaveButton = document.getElementById("saveMoods");
+var mShowButton = document.getElementById("showMoods");
+// var hEnterID = document.getElementById("enterIDHabits");
+// var hEmptyButton = document.getElementById("emptyhabits");
+// var hSaveButton = document.getElementById("saveHabits")
+// var hShowButton = document.getElementById("showHabits");
 
 function emptyCalender() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
@@ -33,15 +37,14 @@ function emptyCalender() {
     background.style.backgroundColor = "rgb(255, 255, 255)";
     date.style.value = "";
   }
-
-  enterID.value = "";
+  mEnterID.value = "";
 }
 
-function addData() {
+function addDataMoods() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let changedDate = document.getElementsByClassName("inputBox")[i];
     let background = document.getElementsByClassName("dates")[i];
-    set(ref(db, "Content/" + enterID.value + "/" + i), {
+    set(ref(db, "Content/" + mEnterID.value + "/ Moods/" + i), {
       Content: changedDate.value,
       Color: background.style.backgroundColor
     })
@@ -53,13 +56,13 @@ function addData() {
   return true;
 }
 
-function findData() {
+function findDataMoods() {
   const dbref = ref(db)
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
     let date = document.getElementsByClassName("inputBox")[i];
     let background = document.getElementsByClassName("dates")[i];
     
-    get(child(dbref, "Content/" + enterID.value + "/" + i))
+    get(child(dbref, "Content/" + mEnterID.value + "/ Moods/" + i))
     .then((snapshot)=>{
       if (snapshot.exists()) {
         date.value = snapshot.val().Content;
@@ -78,25 +81,43 @@ function findData() {
   alert("Den sparade kalendern visas.")
 }
 
-function removeData() {
+function removeDataMoods() {
   if (confirm("Är du säker på att du vill ta bort din kalender?")) {
     for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
       let date = document.getElementsByClassName("inputBox")[i];
       let background = document.getElementsByClassName("dates")[i]; 
-      remove(ref(db, "Content/" + enterID.value + "/" + i))
+      remove(ref(db, "Content/" + mEnterID.value + "/ Moods/" + i))
       .catch((error)=>{
         alert(error);
       })
       date.value = "";
       background.style.backgroundColor = "rgb(255, 255, 255)";
     }
-    enterID.value = "";
+    mEnterID.value = "";
     alert("Datan togs bort.");
   }
 }
 
+// function addDataHabits() {
+//   for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
+//     for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
+//       let dateHabit = document.getElementsByClassName("datesHabits")[j];
+//       set(ref(db, "Content/" + hEnterID.value + "/ Habits" + i + "/" + j), {
+//         HabitColor: dateHabit.style.backgroundColor
+//       })
+//       .catch((error)=>{
+//         alert(error);
+//       })
+//     }
+//     alert("Kalendern sparades.");
+//     return true;
+//   } 
+// }
+
 emptyCalender();
 
-emptyButton.addEventListener("click", removeData);
-saveButton.addEventListener("click", addData);
-showButton.addEventListener("click", findData);
+mEmptyButton.addEventListener("click", removeDataMoods);
+mSaveButton.addEventListener("click", addDataMoods);
+mShowButton.addEventListener("click", findDataMoods);
+
+// hSaveButton.addEventListener("click", addDataHabits);

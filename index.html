@@ -24,7 +24,7 @@
             
             <div class="enterID">
                 <p>Användarnamn:</p>
-                <input id="enterID" type="text">    
+                <input id="enterIDMoods" type="text">    
             </div>
         </div>
 
@@ -34,9 +34,9 @@
             <p><span class="moodMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
             <p><span class="moodMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
             <p><span class="moodMarker" id="removeMood" onclick="changeColorRemove()"></span>- &nbsp&nbsp</p>
-            <button type="button" id="show">Visa din kalender</button>
-            <button type="button" id="save">Spara</button>
-            <button type="button" id="empty">Ta bort</button>            
+            <button type="button" id="showMoods">Visa din kalender</button>
+            <button type="button" id="saveMoods">Spara</button>
+            <button type="button" id="emptyMoods">Ta bort</button>            
             <span class="emptyBlock"></span>
         </div>
 
@@ -97,6 +97,7 @@
         </div>
     </div>
 
+    <script src="declareDatabase" type="module"></script>
     <script src="saveInDatabase.js" type="module"></script>
     <script src="days.js"></script>
     <script src="changeColor.js"></script>
