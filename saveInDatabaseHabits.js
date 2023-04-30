@@ -30,17 +30,26 @@ function addDataHabits() {
     for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
         for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
         let dateHabit = document.getElementsByClassName("datesHabits")[j];
-        set(ref(db, "Content/" + hEnterID.value + "/ Habits" + "/" + j), {
+        set(ref(db, "Content/" + hEnterID.value + "/ Habits/ HabitMarked/" + j), {
             HabitColor: dateHabit.style.backgroundColor
         })
         .catch((error)=>{
             alert(error);
         })
         }
-        alert("Kalendern sparades.");
-        return true;
     } 
-}
+
+    for (let i = 0; i < document.getElementsByClassName("habitName").length; i++) {
+        let nameOfHabit = document.getElementsByClassName("habitName")[i];
+        set(ref(db, "Content/" + hEnterID.value + "/ Habits/ HabitName/" + i), {
+            NameOfHabit: nameOfHabit.value
+        })
+        .catch((error)=>{
+            alert(error);
+        })
+        }
+        alert("Kalendern sparades.");
+    }
 
 function findDataHabits() {
     const dbref = ref(db)
@@ -48,7 +57,7 @@ function findDataHabits() {
         for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
             let dateHabit = document.getElementsByClassName("datesHabits")[j];
         
-            get(child(dbref, "Content/" + hEnterID.value + "/ Habits/" + j))
+            get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitMarked/" + j))
             .then((snapshot)=>{
                 if (snapshot.exists()) {
                 dateHabit.style.backgroundColor = snapshot.val().HabitColor;
@@ -62,16 +71,35 @@ function findDataHabits() {
                 alert(error);
             })
             }
-            alert("Den sparade kalendern visas.")
         }
+
+    for (let i = 0; i < document.getElementsByClassName("habitName").length; i++) {
+        let nameOfHabit = document.getElementsByClassName("habitName")[i];
+        get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitName/" + i))
+            .then((snapshot)=>{
+                if (snapshot.exists()) {
+                nameOfHabit.value = snapshot.val().NameOfHabit;
+                
+                } else {
+                nameOfHabit.value = "";
+                }
+            })
+
+            .catch((error)=>{
+                alert(error);
+            })
+            }
+            alert("Den sparade kalendern visas.")
     }
+    
 
 function removeDataHabits() {
     if (confirm("Är du säker på att du vill ta bort din kalender?")) {
         for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
+            
             for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
             let dateHabit = document.getElementsByClassName("datesHabits")[j];
-            remove(ref(db, "Content/" + hEnterID.value + "/ Habits/" + j))
+            remove(ref(db, "Content/" + hEnterID.value + "/ Habits/ HabitMarked/" + j))
             .catch((error)=>{
                 alert(error);
             })

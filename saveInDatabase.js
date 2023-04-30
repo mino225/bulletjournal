@@ -25,10 +25,6 @@ var mEnterID = document.getElementById("enterIDMoods");
 var mEmptyButton = document.getElementById("emptyMoods");
 var mSaveButton = document.getElementById("saveMoods");
 var mShowButton = document.getElementById("showMoods");
-// var hEnterID = document.getElementById("enterIDHabits");
-// var hEmptyButton = document.getElementById("emptyhabits");
-// var hSaveButton = document.getElementById("saveHabits")
-// var hShowButton = document.getElementById("showHabits");
 
 function emptyCalender() {
   for(let i = 0; i < document.getElementsByClassName("inputBox").length; i++) {
@@ -98,26 +94,8 @@ function removeDataMoods() {
   }
 }
 
-// function addDataHabits() {
-//   for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
-//     for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
-//       let dateHabit = document.getElementsByClassName("datesHabits")[j];
-//       set(ref(db, "Content/" + hEnterID.value + "/ Habits" + i + "/" + j), {
-//         HabitColor: dateHabit.style.backgroundColor
-//       })
-//       .catch((error)=>{
-//         alert(error);
-//       })
-//     }
-//     alert("Kalendern sparades.");
-//     return true;
-//   } 
-// }
-
 emptyCalender();
 
 mEmptyButton.addEventListener("click", removeDataMoods);
 mSaveButton.addEventListener("click", addDataMoods);
 mShowButton.addEventListener("click", findDataMoods);
-
-// hSaveButton.addEventListener("click", addDataHabits);
