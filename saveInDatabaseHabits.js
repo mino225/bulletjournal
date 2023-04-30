@@ -105,9 +105,19 @@ function removeDataHabits() {
             })
             dateHabit.style.backgroundColor = "rgb(255, 255, 255)";
             }
-            hEnterID.value = "";
-            alert("Datan togs bort.");
         }
+
+        for (let i = 0; i < document.getElementsByClassName("habitName").length; i++) {
+            let nameOfHabit = document.getElementsByClassName("habitName")[i];
+            remove(ref(db, "Content/" + hEnterID.value + "/ Habits/ HabitName/" + i))
+            .catch((error)=>{
+                alert(error);
+            })
+
+            nameOfHabit.value = "";
+
+        }
+        hEnterID.value = "";
     }
 }
 
