@@ -22,7 +22,7 @@ from "https://www.gstatic.com/firebasejs/9.20.0/firebase-database.js"
 
 let db = getDatabase();
 var hEnterID = document.getElementById("enterIDHabits");
-var hEmptyButton = document.getElementById("emptyhabits");
+var hEmptyButton = document.getElementById("emptyHabits");
 var hSaveButton = document.getElementById("saveHabits")
 var hShowButton = document.getElementById("showHabits");
 
@@ -70,7 +70,6 @@ function removeDataHabits() {
     if (confirm("Är du säker på att du vill ta bort din kalender?")) {
         for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
             for(let j = 0; j < document.getElementsByClassName("datesHabits").length; j++) {
-
             let dateHabit = document.getElementsByClassName("datesHabits")[j];
             remove(ref(db, "Content/" + hEnterID.value + "/ Habits/" + j))
             .catch((error)=>{
