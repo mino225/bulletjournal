@@ -261,6 +261,8 @@ button {
 /* nya kalendrar */
 #newCalenders {
     flex: 100%;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 /* OM OSS */
