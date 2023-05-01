@@ -9,17 +9,20 @@
 </head>
 <body>
     <div class="flexContainer">
+        <!-- meny -->
         <div class="nav">
             <a href="om.html">OM OSS</a>
             <a href="habits.html" class="currentPage">HABITS</a>
             <a href="index.html">KALENDER</a>
         </div>
 
+        <!-- skriva in användarnamn -->
         <div class="enterID">
             <p>Användarnamn:</p>
             <input id="enterIDHabits" type="text">    
         </div>
 
+        <!-- knappar för att visa/spara/ta bort habits -->
         <div class="buttonsHabit">
             <ul>
                 <li><button type="button" id="showHabits">Visa din kalender</button></li>
@@ -28,9 +31,15 @@
             </ul>
         </div>
         
+        <!-- kalender för habits -->
         <div class="days daysHabits">
+            <!-- visar rutan med färgen -->
             <div class="habitColor"></div>
+
+            <!-- fylla i namnet på habiten -->
             <input type="text" placeholder="Min vana..." class="habitName">
+
+            <!-- tomma rutor innan som gör att resten av dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits datesBlankBeforeOne"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeTwo"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeThree"></div>
@@ -38,6 +47,7 @@
             <div class="datesBlank datesBlankHabits datesBlankBeforeFive"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeSix"></div>
 
+            <!-- dagarna som kan ändra färg -->
             <div class="dates datesHabits" onclick="addHabitToDay(0, 0)">1 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(0, 1)">2 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(0, 2)">3 </div>
@@ -70,6 +80,7 @@
             <div class="dates datesHabits date30" onclick="addHabitToDay(0, 29)">30 </div>
             <div class="dates datesHabits date31" onclick="addHabitToDay(0, 30)">31 </div>
             
+            <!-- dagar efter som justerar så att de andra dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
@@ -79,11 +90,15 @@
         </div>
     
 
-    
+        <!-- kalender habit -->
         <div class="days daysHabits">
+            <!-- visar färgen på habiten -->
             <div class="habitColor"></div>
+
+            <!-- fylla i habitens namn -->
             <input type="text" placeholder="Min vana..." class="habitName">
 
+            <!-- tomma rutor som justerar så att dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits datesBlankBeforeOne"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeTwo"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeThree"></div>
@@ -91,6 +106,7 @@
             <div class="datesBlank datesBlankHabits datesBlankBeforeFive"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeSix"></div>
 
+            <!-- dagarna som man kan fylla i -->
             <div class="dates datesHabits" onclick="addHabitToDay(1, 0)">1 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(1, 1)">2 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(1, 2)">3 </div>
@@ -123,6 +139,7 @@
             <div class="dates datesHabits date30" onclick="addHabitToDay(1, 29)">30 </div>
             <div class="dates datesHabits date31" onclick="addHabitToDay(1, 30)">31 </div>
             
+            <!-- tomma rutor efter som justerar så att dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
@@ -131,11 +148,15 @@
             <div class="datesBlank datesBlankHabits"></div>
         </div>
     
-
-    
+        <!-- habit kalender -->
         <div class="days daysHabits">
+            <!-- visar färgen på habiten -->
             <div class="habitColor"></div>
+
+            <!-- fylla i habitens namn-->
             <input type="text" placeholder="Min vana..." class="habitName">
+
+            <!-- tomma rutor som justerar så att dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits datesBlankBeforeOne"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeTwo"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeThree"></div>
@@ -143,6 +164,7 @@
             <div class="datesBlank datesBlankHabits datesBlankBeforeFive"></div>
             <div class="datesBlank datesBlankHabits datesBlankBeforeSix"></div>
 
+            <!-- dagar som man kan fylla i -->
             <div class="dates datesHabits" onclick="addHabitToDay(2, 0)">1 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(2, 1)">2 </div>
             <div class="dates datesHabits" onclick="addHabitToDay(2, 2)">3 </div>
@@ -175,6 +197,7 @@
             <div class="dates datesHabits date30" onclick="addHabitToDay(2, 29)">30 </div>
             <div class="dates datesHabits date31" onclick="addHabitToDay(2, 30)">31 </div>
             
+            <!-- tomma rutor som justerar så att dagarna ligger rätt -->
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
             <div class="datesBlank datesBlankHabits"></div>
@@ -183,6 +206,8 @@
             <div class="datesBlank datesBlankHabits"></div>
         </div>
     </div>
+
+    <!-- javascript -->
     <script src="habits.js"></script>
     <script src="saveInDatabaseHabits.js" type="module"></script>
 </body>

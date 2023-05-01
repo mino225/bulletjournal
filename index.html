@@ -9,38 +9,51 @@
 </head>
 <body>
     <div class="flexContainer">
+        <!-- meny -->
         <div class="nav">
             <a href="om.html">OM OSS</a>
             <a href="habits.html">HABITS</a>
             <a href="index.html" class="currentPage">KALENDER</a>
         </div>
 
+        <!-- rubriken högst upp med dagens datum -->
         <h1 class="monthName"><span id="todaysWeekday">veckodag</span><span id="todaysDate">datum</span><span id="todaysMonth">månad</span></h1>
         
+        <!-- instruktioner för hur sidan används -->
         <div class="instructions">
+            <!-- informationstext -->
             <div class="information">
                 <p class="infoText">Klicka på en dag för att lägga till en anteckning på den. För att markera dagen med en etikett trycker du på rätt färg i menyn till höger och klickar sedan på dagen. Vill du spara din kalender? Fyll i ett användarnamn och tryck på spara! Med hjälp av ditt användarnamn kommer du åt din kalender senare.</p>
             </div>
             
+            <!-- fylla i användarnamnet -->
             <div class="enterID">
                 <p>Användarnamn:</p>
                 <input id="enterIDMoods" type="text">    
             </div>
         </div>
 
+        <!-- olika saker att fylla i -->
         <div class="moods">
-            <p><span class="moodMarker" id="happiestMood" onclick="changeColorHappiest()"></span>😀</p>
-            <p><span class="moodMarker" id="happyMood" onclick="changeColorHappy()"></span>🙂</p>
-            <p><span class="moodMarker" id="okMood" onclick="changeColorOk()"></span>😐</p>
-            <p><span class="moodMarker" id="sadMood" onclick="changeColorSad()"></span>🙁</p>
-            <p><span class="moodMarker" id="removeMood" onclick="changeColorRemove()"></span>- &nbsp&nbsp</p>
+            <!-- humörmarkörer -->
+            <p><span class="moodMarker" id="happiestMood" onclick="changeColorOnClick(1)"></span>😀</p>
+            <p><span class="moodMarker" id="happyMood" onclick="changeColorOnClick(2)"></span>🙂</p>
+            <p><span class="moodMarker" id="okMood" onclick="changeColorOnClick(3)"></span>😐</p>
+            <p><span class="moodMarker" id="sadMood" onclick="changeColorOnClick(4)"></span>🙁</p>
+            <p><span class="moodMarker" id="removeMood" onclick="changeColorOnClick(0)"></span>- &nbsp&nbsp</p>
+            
+            <!-- knappar för att visa/spara/ta bort kalendern -->
             <button type="button" id="showMoods">Visa din kalender</button>
             <button type="button" id="saveMoods">Spara</button>
-            <button type="button" id="emptyMoods">Ta bort</button>            
+            <button type="button" id="emptyMoods">Ta bort</button> 
+            
+            <!-- tom ruta för att flytta upp resten av knapparna -->
             <span class="emptyBlock"></span>
         </div>
 
+        <!-- kalendern -->
         <div class="days">
+            <!-- veckodagarnas namn -->
             <div class="weekdays">Måndag</div>
             <div class="weekdays">Tisdag</div>
             <div class="weekdays">Onsdag</div>
@@ -49,6 +62,7 @@
             <div class="weekdays">Lördag</div>
             <div class="weekdays">Söndag</div>
 
+            <!-- tomma rutor som justerar så att första dagen hamnar rätt -->
             <div class="datesBlank" id="datesBlankBeforeOne"></div>
             <div class="datesBlank" id="datesBlankBeforeTwo"></div>
             <div class="datesBlank" id="datesBlankBeforeThree"></div>
@@ -56,6 +70,7 @@
             <div class="datesBlank" id="datesBlankBeforeFive"></div>
             <div class="datesBlank" id="datesBlankBeforeSix"></div>
 
+            <!-- dagarna man kan fylla i -->
             <div class="dates" onclick="changeColor(0)">1 <textarea type="text" class="inputBox" onblur=""></textarea></div>
             <div class="dates" onclick="changeColor(1)">2 <textarea type="text" class="inputBox" onblur=""></textarea></div>
             <div class="dates" onclick="changeColor(2)">3 <textarea type="text" class="inputBox" onblur=""></textarea></div>
@@ -88,6 +103,7 @@
             <div class="dates" onclick="changeColor(29)" id="date30">30 <textarea type="text" class="inputBox" onblur=""></textarea></div>
             <div class="dates" onclick="changeColor(30)" id="date31">31 <textarea type="text" class="inputBox" onblur=""></textarea></div>
             
+            <!-- dagar efter som justerar så att dagarna hamnar rätt -->
             <div class="datesBlank"></div>
             <div class="datesBlank"></div>
             <div class="datesBlank"></div>
@@ -97,10 +113,9 @@
         </div>
     </div>
 
-    <script src="declareDatabase" type="module"></script>
+    <!-- javascript -->
     <script src="saveInDatabase.js" type="module"></script>
     <script src="days.js"></script>
     <script src="changeColor.js"></script>
-    
 </body>
 </html>

@@ -1,3 +1,4 @@
+/* ALLMÄNT */
 * {
     box-sizing: border-box;
 }
@@ -20,6 +21,7 @@ body {
     background-color: rgb(149, 201, 149);
 }
 
+/* länkar i menyn */
 .nav a {
     float: right;
     text-decoration: none;
@@ -27,17 +29,18 @@ body {
     color: black;
 }
 
+a:hover {
+    color: rgb(81, 81, 81);
+}
+
+/* gör att länkarna skjuts från högerkanten */
 .nav a:nth-last-of-type(3) {
     margin-right: 50px;
 }
 
-/* FUNGERAR INTE */
+/* sidan du är på har ett sträck under sig */
 .nav .currentPage {
     text-decoration: underline;
-}
-
-a:hover {
-    color: rgb(81, 81, 81);
 }
 
 /* INDEXSIDA */
@@ -77,62 +80,7 @@ a:hover {
     font-style: italic;
 }
 
-/* knappar */
-.enterID {
-    display: flex;
-    background-color: rgb(233, 233, 233);
-    padding: 5px;
-    margin-top: 5px;
-}
-
-.enterID p, .enterID input {
-    flex: 20%;
-    width: 60%;
-}
-
-button {
-    width: 100%;
-    margin-bottom: 5px;
-}
-
-/* datum */
-.days {
-    flex: 70%;
-    padding: 0px 50px 50px 50px;
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.weekdays, .dates, .datesBlank {
-    flex: 12%;
-    margin: 5px;
-    padding: 5px;
-}
-
-.weekdays {
-    border-bottom: solid;
-    border-color: black;
-    border-width: 2px;
-    text-align: center;
-}
-
-.dates, .datesBlank {
-    height: 100px;
-    display: block;
-}
-
-.dates {
-    border: solid;
-    border-color: black;
-    border-width: 1px;
-    border-radius: 15px;
-}
-
-.dates:hover {
-    cursor: pointer;
-}
-
-/* habit trackers */
+/* mood tracker */
 .moods {
     flex: 20%;
     height: 100%;
@@ -143,14 +91,17 @@ button {
     justify-content: center;
 }
 
+/* ställer in höjden på den tomma rutan */
 .moods .emptyBlock {
     height: 300px;
 }
 
+/* gör att texten får ett mellanrum */
 .moods p {
     margin-right: 10px;
 }
 
+/* fixar rutan med färgen */
 .moods span {
     padding: 10px 20px;
     margin-right: 5px; 
@@ -163,7 +114,7 @@ button {
 }
 
 .moodMarker:hover {
-    cursor: pointer;
+    cursor: pointer; /* ändrar muspekaren när man håller över rutan */
 }
 
 #happiestMood {
@@ -188,7 +139,68 @@ button {
     background-color: white;
 }
 
-/* fylla i text i rutorna */
+/* knappar */
+
+/* användarnamnet */
+.enterID {
+    display: flex;
+    background-color: rgb(233, 233, 233);
+    padding: 5px;
+    margin-top: 5px;
+}
+
+.enterID p, .enterID input {
+    flex: 20%;
+    width: 60%;
+}
+
+/* knappar för att visa/spara/ta bort */
+button {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+/* dagar */
+.days {
+    flex: 70%;
+    padding: 0px 50px 50px 50px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* justerar storleken på datumrutorna */
+.weekdays, .dates, .datesBlank {
+    flex: 12%;
+    margin: 5px;
+    padding: 5px;
+}
+
+/* veckodagsnamnen */
+.weekdays {
+    border-bottom: solid;
+    border-color: black;
+    border-width: 2px;
+    text-align: center;
+}
+
+/* formaterar datumrutorna */
+.dates, .datesBlank {
+    height: 100px;
+    display: block;
+}
+
+.dates {
+    border: solid;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 15px;
+}
+
+.dates:hover {
+    cursor: pointer;
+}
+
+/* formatering av rutorna där man kan fylla i text */
 .inputBox {
     width: 100%;
     height: 60px;
@@ -224,7 +236,7 @@ button {
     height: 30px;
 }
 
-/* datum */
+/* dagar */
 .daysHabits {
     flex: 30%;
     height: 50%;
@@ -259,14 +271,17 @@ button {
 /* MOBILANPASSAD */
 @media (max-width: 955px) {
     /* INDEX */
+    /* rubrik */
     .monthName {
         font-size: large;
     }
 
+    /* instruktionstext */
     .infoText {
         flex: 80%; 
     }
 
+    /* dagar */
     .days {
         flex: 100%;
         display: flex;
@@ -278,19 +293,18 @@ button {
         height: 80px
     }
 
-    .weekdays, .datesBlank {
+    /* döljer veckodagsnamnen och de tomma rutorna */
+    .weekdays, .datesBlank, .emptyBlock {
         display: none;
     } 
 
+    /* ändrar storleken på rutorna man fyller i */
     .inputBox {
         height: 40px !important;
     }
 
-    .emptyBlock {
-        display: none;
-    }
-
     /* HABITS */
+    /* kalendrarna */
     .datesHabits {
         flex: 10%;
         height: 40px;
