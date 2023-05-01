@@ -258,6 +258,11 @@ button {
     flex: 10%;
 }
 
+/* nya kalendrar */
+#newCalenders {
+    flex: 100%;
+}
+
 /* OM OSS */
 .aboutUsContent {
     width: 60%;

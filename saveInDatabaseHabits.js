@@ -30,6 +30,7 @@ var hEnterID = document.getElementById("enterIDHabits");
 var hEmptyButton = document.getElementById("emptyHabits");
 var hSaveButton = document.getElementById("saveHabits")
 var hShowButton = document.getElementById("showHabits");
+var hAddCalender = document.getElementById("addCalender");
 
 // lägger till data i databasen
 function addDataHabits() {
@@ -166,7 +167,41 @@ function removeDataHabits() {
     }
 }
 
+// hålla reda på vilken kalender du är på
+let numberOfNewCalender = 3;
+
+// skapa en ny kalender
+function createCalender() {
+    const calenderHabits = document.createElement("div");
+    const calenderHabitsNode = document.createTextNode("");
+    calenderHabits.appendChild(calenderHabitsNode);
+    document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
+
+    for (let i = 0; i < 6; i++) {
+        let newBlankDate = document.createElement("div");
+        let blank = document.createTextNode("");
+        newBlankDate.appendChild(blank);
+        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
+    }
+
+    for (let i = 0; i < 31; i++) {
+        let newDate = document.createElement("div");
+        let newDateNumber = document.createTextNode(i+1);
+        newDate.appendChild(newDateNumber);
+        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newDate).classList.add("dates", "datesHabits");
+    }
+
+    for (let i = 0; i < 6; i++) {
+        let newBlankDate = document.createElement("div");
+        let blank = document.createTextNode("");
+        newBlankDate.appendChild(blank);
+        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
+    }
+}
+
+
 // beroende på vilken knapp du trycker på körs olika funktioner
 hShowButton.addEventListener("click", findDataHabits);
 hSaveButton.addEventListener("click", addDataHabits);
 hEmptyButton.addEventListener("click", removeDataHabits);
+hAddCalender.addEventListener("click", createCalender);
