@@ -28,8 +28,9 @@ let db = getDatabase();
 // definierar knapparna
 var hEnterID = document.getElementById("enterIDHabits");
 var hEmptyButton = document.getElementById("emptyHabits");
-var hSaveButton = document.getElementById("saveHabits")
+var hSaveButton = document.getElementById("saveHabits");
 var hShowButton = document.getElementById("showHabits");
+var hShowCalenders = document.getElementById("showCalenders");
 
 // går igenom varje kalender och formaterar dem
 function formatCalenders() {
@@ -146,6 +147,14 @@ function createCalender() {
         newDate.appendChild(newDateNumber);
         newDate.classList.add("dates", "datesHabits");
         newDate.setAttribute("onclick", `addHabitToDay(${numberOfNewCalender}, ${i})`)
+        
+        if (i == 28) {
+            newDate.classList.add("date29");
+        } else if (i == 29) {
+            newDate.classList.add("date30");
+        } else if (i == 30) {
+            newDate.classList.add("date31");
+        }
         dayHabits[dayHabits.length -1].appendChild(newDate);
     }
 
@@ -210,24 +219,36 @@ function addDataHabits() {
     alert("Kalendern sparades.");
 }
 
+function findCalendersInDatabase() {
+    // definierar en referens till databasen
+    const dbref = ref(db)
+
+    // skapar kalendrar
+    get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ ExtraCalenders"))
+    .then((snapshot)=>{
+        // alert(snapshot.val().NumberOfCalenders)
+        if (snapshot.exists()) { // det skapas olika många kalendrar beroende på det sparade värdet
+            let calendersToMake = parseInt(snapshot.val().NumberOfCalenders)-3;
+            for (let i = 0; i < calendersToMake; i++) {
+                // if (document.getElementsByClassName("daysHabit").length-3 < snapshot.val().numberOfCalenders) {
+                createCalender();
+                // } 
+            }
+        } 
+    })
+    // blir det en error skrivs den ut
+    .catch((error)=>{
+        alert(error);
+    })
+}
+
 // hittar värdet i databasen och skriver ut
 function findDataHabits() {
     // definierar en referens till databasen
     const dbref = ref(db)
 
-    get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitName/" + i))
-    .then((snapshot)=>{
-        if (snapshot.exists()) { // det skapas olika många kalendrar beroende på det sparade värdet
-        for (let i = 0; i < snapshot.val().NameOfHabit; i++) {
-            createCalender();
-            }
-        } 
-    })
-
-    // blir det en error skrivs den ut
-    .catch((error)=>{
-        alert(error);
-    })
+    // lägger till antalet extrakalendrar
+    // findCalendersInDatabase();
 
     // går igenom alla dagar
     for(let i = 0; i < document.getElementsByClassName("datesHabits").length; i++) {
@@ -235,7 +256,7 @@ function findDataHabits() {
         let dateHabit = document.getElementsByClassName("datesHabits")[i];
     
         // hämtar värdet ut databasen
-        get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ ExtraCalenders"))
+        get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitMarked/" + i))
         .then((snapshot)=>{
             if (snapshot.exists()) { // om värdet existerar ändrar den färgen
             dateHabit.style.backgroundColor = snapshot.val().HabitColor;
@@ -324,3 +345,4 @@ function removeDataHabits() {
 hShowButton.addEventListener("click", findDataHabits);
 hSaveButton.addEventListener("click", addDataHabits);
 hEmptyButton.addEventListener("click", removeDataHabits);
+hShowCalenders.addEventListener("click", findCalendersInDatabase)

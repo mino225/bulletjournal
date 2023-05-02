@@ -179,6 +179,14 @@ function createCalender() {
         newDate.appendChild(newDateNumber);
         newDate.classList.add("dates", "datesHabits");
         newDate.setAttribute("onclick", `addHabitToDay(${numberOfNewCalender}, ${i})`)
+
+        if (i == 28) {
+            newDate.classList.add("date29");
+        } else if (i == 29) {
+            newDate.classList.add("date30");
+        } else if (i == 30) {
+            newDate.classList.add("date31");
+        }
         dayHabits[dayHabits.length -1].appendChild(newDate);
     }
 
