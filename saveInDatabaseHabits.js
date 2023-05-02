@@ -31,6 +31,135 @@ var hEmptyButton = document.getElementById("emptyHabits");
 var hSaveButton = document.getElementById("saveHabits")
 var hShowButton = document.getElementById("showHabits");
 
+// går igenom varje kalender och formaterar dem
+function formatCalenders() {
+    for (let i = 0; i < document.getElementsByClassName("daysHabits").length; i++) {
+        // definierar rutan för den 29:e, 30:e och 31:a
+        let day29 = document.getElementsByClassName("date29")[i];
+        let day30 = document.getElementsByClassName("date30")[i];
+        let day31 = document.getElementsByClassName("date31")[i];
+    
+        // jämför med vilken dag månaden börjar och döljer olika många dagar utefter det
+        if (firstWeekdayOfMonth == 7 || firstWeekdayOfMonth == 0) {
+            document.getElementsByClassName("datesBlankBeforeOne")[i].style.display = "none";
+            document.getElementsByClassName("datesBlankBeforeTwo")[i].style.display = "none";
+            document.getElementsByClassName("datesBlankBeforeThree")[i].style.display = "none";
+            document.getElementsByClassName("datesBlankBeforeFour")[i].style.display = "none";
+            document.getElementsByClassName("datesBlankBeforeFive")[i].style.display = "none";
+            document.getElementsByClassName("datesBlankBeforeSix")[i].style.display = "none";
+        }
+    
+        else {
+            
+            if (firstWeekdayOfMonth <= 5) {
+                document.getElementsByClassName("datesBlankBeforeSix")[i].style.display = "none";
+            }
+            
+            if (firstWeekdayOfMonth <= 4) {
+                document.getElementsByClassName("datesBlankBeforeFive")[i].style.display = "none";
+            }
+            
+            if (firstWeekdayOfMonth <= 3) {
+                document.getElementsByClassName("datesBlankBeforeFour")[i].style.display = "none";
+            }
+            
+            if (firstWeekdayOfMonth <= 2) {
+                document.getElementsByClassName("datesBlankBeforeThree")[i].style.display = "none";
+            }
+            
+            if (firstWeekdayOfMonth <= 1) {
+                document.getElementsByClassName("datesBlankBeforeTwo")[i].style.display = "none";
+            }
+        }
+    
+        // beroende på vilken månad det är döljer den olika många dagar i slutet
+        if (monthStr.toLowerCase() == "februari") {
+            day29.innerHTML = "";
+            day29.style.border = "none";
+            day30.innerHTML = "";
+            day30.style.border = "none";
+            day31.innerHTML = "";
+            day31.style.border = "none";
+        }
+    
+        else if (monthStr.toLowerCase() == "april" || monthStr.toLowerCase() == "juni" || monthStr.toLowerCase() == "september" || monthStr.toLowerCase() == "november") {
+            day31.style.display = "none";
+        }
+    }
+    
+    // går igenom alla dagar och markerar vilken dag det är idag
+    for (let i = 0; i < dates.length; i++) {
+        if (dates[i].innerHTML.startsWith(dayStr + " ") == true) {
+            dates[i].style.fontWeight = 'bold';
+        }
+    }
+}
+
+// skapa en ny kalender
+function createCalender() {
+    const dayHabits = document.getElementsByClassName("daysHabits");
+
+    const calenderHabits = document.createElement("div");
+    const calenderHabitsNode = document.createTextNode("");
+    calenderHabits.appendChild(calenderHabitsNode);
+    calenderHabits.classList.add("days", "daysHabits")
+    document.getElementById("newCalenders").appendChild(calenderHabits);
+
+    const habitColor = document.createElement("div");
+    const habitColorNode = document.createTextNode("");
+    habitColor.appendChild(habitColorNode);
+    dayHabits[dayHabits.length-1].appendChild(habitColor).classList.add("habitColor");
+    document.getElementsByClassName("habitColor")[document.getElementsByClassName("habitColor").length-1].style.backgroundColor = newColors();
+
+    const habitName = document.createElement("input");
+    const habitNameNode = document.createTextNode("");
+    habitName.appendChild(habitNameNode);
+    habitName.placeholder = "Min vana..."
+    dayHabits[dayHabits.length -1].appendChild(habitName).classList.add("habitName");
+
+    for (let i = 0; i < 6; i++) {
+        let newBlankDate = document.createElement("div");
+        let blank = document.createTextNode("");
+        newBlankDate.appendChild(blank);
+        newBlankDate.classList.add("datesBlank", "datesBlankHabits");
+
+        if (i == 0) {
+            newBlankDate.classList.add("datesBlankBeforeOne");
+        } else if (i == 1) {
+            newBlankDate.classList.add("datesBlankBeforeTwo");
+        } else if (i == 2) {
+            newBlankDate.classList.add("datesBlankBeforeThree");
+        } else if (i == 3) {
+            newBlankDate.classList.add("datesBlankBeforeFour");
+        } else if (i == 4) {
+            newBlankDate.classList.add("datesBlankBeforeFive");
+        } else if (i == 5) {
+            newBlankDate.classList.add("datesBlankBeforeSix");
+        }
+
+        dayHabits[dayHabits.length -1].appendChild(newBlankDate);
+    }
+
+    for (let i = 0; i < 31; i++) {
+        let newDate = document.createElement("div");
+        let newDateNumber = document.createTextNode(i+1);
+        newDate.appendChild(newDateNumber);
+        newDate.classList.add("dates", "datesHabits");
+        newDate.setAttribute("onclick", `addHabitToDay(${numberOfNewCalender}, ${i})`)
+        dayHabits[dayHabits.length -1].appendChild(newDate);
+    }
+
+    for (let i = 0; i < 6; i++) {
+        let newBlankDate = document.createElement("div");
+        let blank = document.createTextNode("");
+        newBlankDate.appendChild(blank);
+        dayHabits[dayHabits.length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
+    }
+
+    formatCalenders();
+    numberOfNewCalender += 1;
+}
+
 // lägger till data i databasen
 function addDataHabits() {
     // går igenom alla datum och sparar ner bakgrundsfärgen
@@ -65,6 +194,18 @@ function addDataHabits() {
         })
     }
 
+    // räknar hur många extrakalendrar man har
+    let numberOfCalenders = document.getElementsByClassName("daysHabits").length - 3;
+    // lägger till numret i databasen
+    set(ref(db, "Content/" + hEnterID.value + "/ Habits/ ExtraCalenders"), {
+        NumberOfCalenders: numberOfCalenders
+    })
+    // om det blir en error skrivs den ut
+    .catch((error)=>{
+        alert(error);
+    })
+
+
     // skickar ut ett meddelande om att värdet sparades
     alert("Kalendern sparades.");
 }
@@ -74,13 +215,27 @@ function findDataHabits() {
     // definierar en referens till databasen
     const dbref = ref(db)
 
+    get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitName/" + i))
+    .then((snapshot)=>{
+        if (snapshot.exists()) { // det skapas olika många kalendrar beroende på det sparade värdet
+        for (let i = 0; i < snapshot.val().NameOfHabit; i++) {
+            createCalender();
+            }
+        } 
+    })
+
+    // blir det en error skrivs den ut
+    .catch((error)=>{
+        alert(error);
+    })
+
     // går igenom alla dagar
     for(let i = 0; i < document.getElementsByClassName("datesHabits").length; i++) {
         // definierar dagen
         let dateHabit = document.getElementsByClassName("datesHabits")[i];
     
         // hämtar värdet ut databasen
-        get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ HabitMarked/" + i))
+        get(child(dbref, "Content/" + hEnterID.value + "/ Habits/ ExtraCalenders"))
         .then((snapshot)=>{
             if (snapshot.exists()) { // om värdet existerar ändrar den färgen
             dateHabit.style.backgroundColor = snapshot.val().HabitColor;

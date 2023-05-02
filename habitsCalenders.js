@@ -13,6 +13,9 @@ let monthStr = month.toString();
 let weekday = weekdays[d.getDay()];
 let dates = document.getElementsByClassName("dates");
 
+// hålla reda på vilken kalender du är på
+let numberOfNewCalender = 3;
+
 // definierar knappen för att skapa kalender
 var hAddCalender = document.getElementById("addCalender");
 
@@ -125,9 +128,6 @@ function formatCalenders() {
     }
 }
 
-// hålla reda på vilken kalender du är på
-let numberOfNewCalender = 3;
-
 // skapa en ny kalender
 function createCalender() {
     const dayHabits = document.getElementsByClassName("daysHabits");
@@ -191,28 +191,6 @@ function createCalender() {
 
     formatCalenders();
     numberOfNewCalender += 1;
-
-    // if (numberOfNewCalender == 3) {
-    //     for (let i = 0; i < 2; i++) {
-    //         const calenderHabits = document.createElement("div");
-    //         const calenderHabitsNode = document.createTextNode("");
-    //         calenderHabits.appendChild(calenderHabitsNode);
-    //         document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
-    //     }
-    //     numberOfNewCalender += 1;
-    // } 
-    // FUNGERAR INTE
-    // else if (numberOfNewCalender == 4) {
-    //     for (let i = 0; i < 2; i++) {
-    //         document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].parentNode.removeChild(document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1]);
-    //     }
-    //     const calenderHabits = document.createElement("div");
-    //     const calenderHabitsNode = document.createTextNode("");
-    //     calenderHabits.appendChild(calenderHabitsNode);
-    //     document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
-
-    //     numberOfNewCalender += 1;
-    // }
 }
 
 formatCalenders();
