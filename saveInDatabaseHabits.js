@@ -30,10 +30,6 @@ var hEnterID = document.getElementById("enterIDHabits");
 var hEmptyButton = document.getElementById("emptyHabits");
 var hSaveButton = document.getElementById("saveHabits")
 var hShowButton = document.getElementById("showHabits");
-var hAddCalender = document.getElementById("addCalender");
-
-// definierar färgerna för habits
-const colors = ["lavender", "coral", "lightgreen", "lightblue", "yellow", "lightgrey"];
 
 // lägger till data i databasen
 function addDataHabits() {
@@ -162,7 +158,6 @@ function removeDataHabits() {
 
             // rutan töms
             nameOfHabit.value = "";
-
         }
 
         // användarnamnet tas bort
@@ -170,74 +165,7 @@ function removeDataHabits() {
     }
 }
 
-// hålla reda på vilken kalender du är på
-let numberOfNewCalender = 3;
-
-// skapa en ny kalender
-function createCalender() {
-    const calenderHabits = document.createElement("div");
-    const calenderHabitsNode = document.createTextNode("");
-    calenderHabits.appendChild(calenderHabitsNode);
-    document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
-
-    const habitColor = document.createElement("div");
-    const habitColorNode = document.createTextNode("");
-    habitColor.appendChild(habitColorNode);
-    document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(habitColor).classList.add("habitColor");
-    document.getElementsByClassName("habitColor")[document.getElementsByClassName("habitColor").length-1].style.backgroundColor = colors[numberOfNewCalender];
-
-    const habitName = document.createElement("input");
-    const habitNameNode = document.createTextNode("");
-    habitName.appendChild(habitNameNode);
-    document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(habitName).classList.add("habitName");
-
-    for (let i = 0; i < 6; i++) {
-        let newBlankDate = document.createElement("div");
-        let blank = document.createTextNode("");
-        newBlankDate.appendChild(blank);
-        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
-    }
-
-    for (let i = 0; i < 31; i++) {
-        let newDate = document.createElement("div");
-        let newDateNumber = document.createTextNode(i+1);
-        newDate.appendChild(newDateNumber);
-        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newDate).classList.add("dates", "datesHabits");
-    }
-
-    for (let i = 0; i < 6; i++) {
-        let newBlankDate = document.createElement("div");
-        let blank = document.createTextNode("");
-        newBlankDate.appendChild(blank);
-        document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
-    }
-
-    if (numberOfNewCalender == 3) {
-        for (let i = 0; i < 2; i++) {
-            const calenderHabits = document.createElement("div");
-            const calenderHabitsNode = document.createTextNode("");
-            calenderHabits.appendChild(calenderHabitsNode);
-            document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
-        }
-        numberOfNewCalender += 1;
-    } 
-    // FUNGERAR INTE
-    else if (numberOfNewCalender == 4) {
-        for (let i = 0; i < 2; i++) {
-            document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1].parentNode.removeChild(document.getElementsByClassName("daysHabits")[document.getElementsByClassName("daysHabits").length -1]);
-        }
-        const calenderHabits = document.createElement("div");
-        const calenderHabitsNode = document.createTextNode("");
-        calenderHabits.appendChild(calenderHabitsNode);
-        document.getElementById("newCalenders").appendChild(calenderHabits).classList.add("days", "daysHabits");
-
-        numberOfNewCalender += 1;
-    }
-}
-
-
 // beroende på vilken knapp du trycker på körs olika funktioner
 hShowButton.addEventListener("click", findDataHabits);
 hSaveButton.addEventListener("click", addDataHabits);
 hEmptyButton.addEventListener("click", removeDataHabits);
-hAddCalender.addEventListener("click", createCalender);
