@@ -13,24 +13,8 @@ let monthStr = month.toString();
 let weekday = weekdays[d.getDay()];
 let dates = document.getElementsByClassName("dates");
 
-// hålla reda på vilken kalender du är på
-let numberOfNewCalender = 3;
-
-// definierar knappen för att skapa kalender
-var hAddCalender = document.getElementById("addCalender");
-
-// definierar färgerna för habits
-let colorsIndex = -1;
-const newColors = ()=> {
-    colorsIndex++;
-    const colors = ["lightblue", "yellow", "lightgrey", "lavender", "coral", "lightgreen"]
-    if (colorsIndex > colors.length-1) {
-        colorsIndex = 0;
-    }
-    return colors[colorsIndex];
-}
-
-const colors = ["lavender", "coral", "lightgreen", "lightblue", "yellow", "lightgrey"];
+// definierar färgerna
+const colors = ["lavender", "coral", "lightgreen"];
 
 // markerar en dag i kalendern med en färg
 function addHabitToDay(calender, number) {
@@ -128,78 +112,4 @@ function formatCalenders() {
     }
 }
 
-// skapa en ny kalender
-function createCalender() {
-    const dayHabits = document.getElementsByClassName("daysHabits");
-
-    const calenderHabits = document.createElement("div");
-    const calenderHabitsNode = document.createTextNode("");
-    calenderHabits.appendChild(calenderHabitsNode);
-    calenderHabits.classList.add("days", "daysHabits")
-    document.getElementById("newCalenders").appendChild(calenderHabits);
-
-    const habitColor = document.createElement("div");
-    const habitColorNode = document.createTextNode("");
-    habitColor.appendChild(habitColorNode);
-    dayHabits[dayHabits.length-1].appendChild(habitColor).classList.add("habitColor");
-    document.getElementsByClassName("habitColor")[document.getElementsByClassName("habitColor").length-1].style.backgroundColor = newColors();
-
-    const habitName = document.createElement("input");
-    const habitNameNode = document.createTextNode("");
-    habitName.appendChild(habitNameNode);
-    habitName.placeholder = "Min vana..."
-    dayHabits[dayHabits.length -1].appendChild(habitName).classList.add("habitName");
-
-    for (let i = 0; i < 6; i++) {
-        let newBlankDate = document.createElement("div");
-        let blank = document.createTextNode("");
-        newBlankDate.appendChild(blank);
-        newBlankDate.classList.add("datesBlank", "datesBlankHabits");
-
-        if (i == 0) {
-            newBlankDate.classList.add("datesBlankBeforeOne");
-        } else if (i == 1) {
-            newBlankDate.classList.add("datesBlankBeforeTwo");
-        } else if (i == 2) {
-            newBlankDate.classList.add("datesBlankBeforeThree");
-        } else if (i == 3) {
-            newBlankDate.classList.add("datesBlankBeforeFour");
-        } else if (i == 4) {
-            newBlankDate.classList.add("datesBlankBeforeFive");
-        } else if (i == 5) {
-            newBlankDate.classList.add("datesBlankBeforeSix");
-        }
-
-        dayHabits[dayHabits.length -1].appendChild(newBlankDate);
-    }
-
-    for (let i = 0; i < 31; i++) {
-        let newDate = document.createElement("div");
-        let newDateNumber = document.createTextNode(i+1);
-        newDate.appendChild(newDateNumber);
-        newDate.classList.add("dates", "datesHabits");
-        newDate.setAttribute("onclick", `addHabitToDay(${numberOfNewCalender}, ${i})`)
-
-        if (i == 28) {
-            newDate.classList.add("date29");
-        } else if (i == 29) {
-            newDate.classList.add("date30");
-        } else if (i == 30) {
-            newDate.classList.add("date31");
-        }
-        dayHabits[dayHabits.length -1].appendChild(newDate);
-    }
-
-    for (let i = 0; i < 6; i++) {
-        let newBlankDate = document.createElement("div");
-        let blank = document.createTextNode("");
-        newBlankDate.appendChild(blank);
-        dayHabits[dayHabits.length -1].appendChild(newBlankDate).classList.add("datesBlank", "datesBlankHabits");
-    }
-
-    formatCalenders();
-    numberOfNewCalender += 1;
-}
-
 formatCalenders();
-hAddCalender.addEventListener("click", createCalender);

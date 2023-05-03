@@ -126,9 +126,6 @@ function removeDataMoods() {
 
     // användarnamnet tas bort
     mEnterID.value = "";
-
-    // skickar ett meddelande om att datan togs bort
-    alert("Datan togs bort.");
   }
 }
 
